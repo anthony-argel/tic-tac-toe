@@ -134,6 +134,11 @@ const board = (() => {
         for (ind in tiles) {
             tiles[ind].textContent = "";
         }
+
+        console.log(Game.getPlayerIsCPU());
+        if(Game.getPlayerIsCPU()) {
+            Game.endTurn();
+        }
     }
 
     return {createBoard, resetBoard, tileAvailable, aiPlaceMarker};
@@ -236,6 +241,15 @@ const Game = (() =>  {
         }
     }
 
+    let getPlayerIsCPU = () => {
+        if (movesFirst == 0) {
+            return player1.getIsCPU();
+        }
+        else {
+            return player2.getIsCPU();
+        }
+    }
+
     function _AITakeTurn() {
         console.log("AI took turn");
         let rowChosen = Math.floor(Math.random() * 3);
@@ -265,7 +279,7 @@ const Game = (() =>  {
             }
         }
     }
-    return {startGame, defaultGame, getCurrentPlayerValue, getCurrentPlayerName, getCurrentPlayerMarker, endTurn};
+    return {startGame, defaultGame, getCurrentPlayerValue, getCurrentPlayerName, getCurrentPlayerMarker, endTurn, getPlayerIsCPU};
 
 })();
 

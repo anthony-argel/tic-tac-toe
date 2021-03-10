@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Tic-Tac-Toe</h1>
+            </header>
+            <section class="flex-centered">
+                <form id="ui-options">
+                    <label for="game-mode">Game mode:</label>
+                    <select id="game-mode">
+                        <option value="pvp">Player vs. Player</option>
+                        <option value="pvc">Player vs. CPU</option>
+                    </select>
+                    <button type="button" id="new-game" onclick="Game.startGame()">New Game</button>
+                </form>
+            </section>
+            <div>
+                <h2>Turn: <span id="turn">Player1</span></h2>
+            </div>
+            <section id="board">
+            </section>
+        </main>
+
+        <script src="scripts/main.js"></script>
+    </body>
+
+</html>
